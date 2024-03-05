@@ -2,6 +2,7 @@
 
 import { ChangeEvent, useEffect, useState } from "react";
 import { IGoogleSearchResponse } from "../models/IGoogleSearchResponse";
+import { SearchResult } from "./SearchResults";
 
 export const Search = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -21,13 +22,16 @@ export const Search = () => {
     );
     const data: IGoogleSearchResponse = await response.json();
     console.log(data);
-    setSearchData(data)
+    setSearchData(data);
+    setSearchQuery("");
   };
 
   return (
     <div>
       <input type="text" value={searchQuery} onChange={handleSearchInput} />
       <button onClick={handleSearch}>Search</button>
+      <SearchResult searchData={searchData}/>
+
     </div>
   );
 };
