@@ -1,4 +1,5 @@
 import { IGoogleSearchResponse } from "../models/IGoogleSearchResponse"
+import './SearchResults.css'
 
 interface ISearchResultProps {
     searchData: IGoogleSearchResponse | null;
@@ -8,14 +9,19 @@ export const SearchResult = ({searchData}: ISearchResultProps ) => {  if (!searc
     return <p>No images found.</p>; 
   }
     return (
-        <div>
+        <div className="div-container">
+            <div>
+            </div>
+            <div className="images-container">
             {searchData.items.map((item, i) => (
                 <div key={i}>
-                    <img src={item.link} alt={item.title} />
-
+                    <img className="images" src={item.link} alt={item.title} />
                 </div>
 
             ))}
+
+            </div>
+
 
         </div>
     )
