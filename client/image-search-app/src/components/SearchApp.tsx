@@ -4,8 +4,10 @@ import { ChangeEvent, useState } from "react";
 import { IGoogleSearchResponse } from "../models/IGoogleSearchResponse";
 import { SearchResult } from "./SearchResults";
 import './SearchResults.css'
+import { SearchBar } from "./SearchBar";
 
-export const Search = () => {
+
+export const SearchApp = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchData, setSearchData] = useState<IGoogleSearchResponse | null>(
     null
@@ -14,6 +16,7 @@ export const Search = () => {
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   }
+
 
   const handleSearch = async (query?: string) => {
     const searchTerm = query || searchQuery;
@@ -31,11 +34,9 @@ export const Search = () => {
 
   return (
     <div className="search-container">
-        <div className="search-input-container">
-        <input type="text" value={searchQuery} onChange={handleSearchInput} />
-        <button onClick={() => handleSearch()}>Search</button>
-      </div>
+      <SearchBar handleSearchInput={handleSearchInput} handleSearch={handleSearch} searchQuery={searchQuery}/>
       <SearchResult searchData={searchData} handleSearch={handleSearch}/>
+  
 
     </div>
   );

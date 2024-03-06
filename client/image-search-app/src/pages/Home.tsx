@@ -2,7 +2,7 @@
 
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Home.css";
-import { Search } from "../components/Search";
+import { SearchApp } from "../components/SearchApp";
 
 
 
@@ -22,7 +22,7 @@ export const Home = () => {
       {!isAuthenticated ? (
         <h2>Please log in to search images :)</h2>
       ): (
-        <Search />
+        <SearchApp />
       )}
       
 

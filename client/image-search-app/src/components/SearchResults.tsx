@@ -1,17 +1,22 @@
 /** @format */
 
 import { IGoogleSearchResponse } from "../models/IGoogleSearchResponse";
+import { IImages } from "../models/IImages";
 import "./SearchResults.css";
 
 interface ISearchResultProps {
   searchData: IGoogleSearchResponse | null;
   handleSearch: (query?: string) => Promise<void>;
+  // addFavorite: (image: IImages) => void;
 }
 
 export const SearchResult = ({
   searchData,
   handleSearch,
+  // addFavorite
 }: ISearchResultProps) => {
+
+  
 
     return (
     <div className="div-container">
@@ -38,6 +43,7 @@ export const SearchResult = ({
         {searchData?.items.map((item, i) => (
           <div key={i}>
             <img className="images" src={item.link} alt={item.title} />
+            {/* <button onClick={() => addFavorite({link: item.link, title: item.title})}>Add to Favorites</button> */}
           </div>
         ))}
       </div>
