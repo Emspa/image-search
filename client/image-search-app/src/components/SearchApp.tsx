@@ -36,7 +36,6 @@ export const SearchApp = () => {
     <div className="search-container">
       <SearchBar handleSearchInput={handleSearchInput} handleSearch={handleSearch} searchQuery={searchQuery}/>
       <SearchResult searchData={searchData} handleSearch={handleSearch}/>
-  
 
     </div>
   );
