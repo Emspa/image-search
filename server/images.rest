@@ -1,1 +1,7 @@
-GET http://localhost:3000/images
+POST http://localhost:3000/api/save-favorite
+Content-Type: application/json
+
+{
+  "user": "espasovskas95@gamil.com",
+  "imageUrl": "http://evryjewels.com/cdn/shop/files/daily-ring-1-2.jpg?v=1695846344"
+}
