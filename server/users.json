@@ -1,42 +1,11 @@
 [
   {
-    "name": "github|119783924",
+    "id": "github|119783924",
     "favorites": [
       {
-        "title": "Dog Born with Crooked Face Named Picasso Finds Home with Rescuer",
-        "byteSize": 135894,
-        "url": "https://people.com/thmb/pX_6cwzhf7ofzK7SiAewtmcKvhc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(646x129:648x131)/dog-born-with-crooked-face-112823-1-e303fbe5c5674ae28b69ab3521bb64c2.jpg"
-      },
-      {}
-    ]
-  },
-  {
-    "name": "github|119783924",
-    "favorites": [
-      {
-        "title": "Was Bobi Really the World's Oldest Dog? His Guinness Record Is in ...",
-        "byteSize": 442741,
-        "url": "https://static01.nyt.com/images/2024/01/16/multimedia/16xp-dog-01-lchw/16xp-dog-01-lchw-mediumSquareAt3X.jpg"
-      }
-    ]
-  },
-  {
-    "name": "google-oauth2|116701826197584417698",
-    "favorites": [
-      {
-        "title": "The Internet's 'Dog Mom' Talks the Science of the Human-Dog Bond ...",
-        "byteSize": 67401,
-        "url": "https://static.scientificamerican.com/sciam/cache/file/8F2611FB-1329-445F-9428B91317BC067B_source.jpg?w=600"
-      }
-    ]
-  },
-  {
-    "name": "someUserId",
-    "favorites": [
-      {
-        "title": "Favorite Item Title",
-        "byteSize": "12345",
-        "url": "http://example.com/image.jpg"
+        "title": "Sephora rolls out smaller-store concept with high-tech beauty upgrades",
+        "byteSize": 155278,
+        "link": "https://image.cnbcfm.com/api/v1/image/104601169-GettyImages-459948508.jpg?v=1532563793&w=1920&h=1080"
       }
     ]
   }

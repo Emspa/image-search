@@ -1,9 +1,1 @@
-POST http://localhost:3000/api/users/save-favorite
-Content-Type: application/json
-
-{
-  "user": "someUserId",
-  "title": "Favorite Item Title",
-  "byteSize": "12345",
-  "imageUrl": "http://example.com/image.jpg"
-}
+GET http://localhost:3000/api/users/favorite/github|119783924

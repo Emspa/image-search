@@ -11,7 +11,7 @@ const app = express()
 app.use(cors());
 app.use(express.json())
 
-app.get('/api/users/favorite/:id'), async (req, res) => {
+app.get('/api/users/favorite/:id', async (req, res) => {
     try {
         let users = JSON.parse(await fs.readFile("./users.json", "utf-8"));
         let user = users.find(u => u.id === req.params.id);
@@ -25,7 +25,7 @@ app.get('/api/users/favorite/:id'), async (req, res) => {
         console.error('Error reading from users.json:', error);
         res.status(500).json({ message: 'Internal Server Error' });
     }
-}
+});
 
 app.post('/api/users/save-favorite', validate(addToFavoriteSchema), async (req, res) => {
     const { user, title, byteSize, imageUrl } = req.body;
@@ -38,13 +38,13 @@ app.post('/api/users/save-favorite', validate(addToFavoriteSchema), async (req, 
         if (foundUser) {
             const favoriteExists = foundUser.favorites.some(favorite => favorite.url === imageUrl);
             if (!favoriteExists) {
-                foundUser.favorites.push({ title, byteSize, url: imageUrl });
+                foundUser.favorites.push({ title, byteSize, link: imageUrl });
      
             }
         } else {
             users.push({
-                name: user, 
-                favorites: [{ title, byteSize, url: imageUrl }]
+                id: user, 
+                favorites: [{ title, byteSize, link: imageUrl }]
             });
         }
 
