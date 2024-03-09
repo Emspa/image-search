@@ -1,7 +1,9 @@
 const express = require("express")
 const fs = require('fs').promises;
 
-const cors = require("cors")
+const cors = require("cors");
+const { addToFavoriteSchema } = require("./schemas/image.schema");
+const { validate } = require("./validate");
 
 const app = express()
 
@@ -11,7 +13,7 @@ app.use(express.json())
 
 
 
-app.post('/api/users/save-favorite', async (req, res) => {
+app.post('/api/users/save-favorite', validate( addToFavoriteSchema ), async (req, res) => {
     const { user, title, byteSize, imageUrl } = req.body;
 
     try {

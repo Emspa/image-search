@@ -2,10 +2,11 @@
 
 import { useAuth0 } from "@auth0/auth0-react";
 import { IGoogleSearchResponse } from "../models/IGoogleSearchResponse";
-import { IImages } from "../models/IImages";
+// import { IImages } from "../models/IImages";
 import "./SearchResults.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { IImageResultItem } from "../models/IImageResultItem";
 
 interface ISearchResultProps {
   searchData: IGoogleSearchResponse | null;
@@ -20,12 +21,13 @@ export const SearchResult = ({
 }: ISearchResultProps) => {
   const { user, isAuthenticated } = useAuth0(); 
 
-  const [saveImage, setSaveImage] = useState<IImages[]>([]);
+  const [saveImage, setSaveImage] = useState<IImageResultItem[]>([]);
 
 
-  const saveFavorite = async (image: IImages) => {
+
+  const saveFavorite = async (image: IImageResultItem) => {
     try {
-      await axios.post('http://localhost:3000/api/save-favorite', { user: user?.email, imageUrl: image.link });
+      await axios.post('http://localhost:3000/api/users/save-favorite', { user: user?.sub, title: image.title, byteSize: image.image.byteSize, imageUrl: image.link });
       setSaveImage([...saveImage, image]);
       console.log('Image saved successfully:', image);
     } catch (error) {
@@ -33,28 +35,6 @@ export const SearchResult = ({
     }
   }
 
-// const saveFavorite = async (image: IImages) => {
-//     try {
-//       const response = await fetch('/api/save-favorite', {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//           user: user?.email,
-//           imageUrl: image.link,
-//         }),
-//       });
-
-//       if (!response.ok) {
-//         throw new Error("Could not save image");
-//       }
-//       const data = await response.json();
-//       console.log(data.message);
-//     }catch (error) {
-//       console.error("Something went wrong when trying to save image:", error)
-//     }
-//   }
 
   
 

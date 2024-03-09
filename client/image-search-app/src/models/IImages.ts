@@ -1,5 +1,8 @@
-export interface IImages {
-    title: string;
-    link: string;
+// export interface IImages {
+//     title: string;
+//     link: string;
+//     image: {byteSize: number }
 
-}
+
+// }
+
