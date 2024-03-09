@@ -1,38 +1,59 @@
 const express = require("express")
-const fs = require('fs')
+const fs = require('fs').promises;
 
 const cors = require("cors")
 
 const app = express()
 
-const images = [
-    {
-        id: 1,
-        name: "elephant"
-    },
-    {
-        id: 2,
-        name: "cat"
-    },
-]
 
 app.use(cors());
 app.use(express.json())
 
-// app.get('/images', (req, res) => {
-//     res.status(200).json(images)
-
-// })
 
 
-app.post('/api/save-favorite', async (req, res) => {
-    console.log(req.body);
-    // Validera inkommande data med Joi här
-    const { user, imageUrl } = req.body; // Antag att dessa fält finns i din request body
+app.post('/api/users/save-favorite', async (req, res) => {
+    const { user, title, byteSize, imageUrl } = req.body;
 
-    // Här skulle du spara datan i din JSON-fil
-    
-    res.json({ message: 'Bild sparad' });
-  });
+    try {
+        let data = await fs.readFile('./users.json', 'utf8');
+        console.log(process.cwd())
+        let users = JSON.parse(data);
+        
+        let foundUser = users.find(u => u.sub === user);
+        if (foundUser) {
+            const favoriteExists = foundUser.favorites.some(favorite => favorite.url === imageUrl);
+            if (!favoriteExists) {
+                foundUser.favorites.push({ title, byteSize, url: imageUrl });
+     
+            }
+        } else {
+  
+            users.push({
+                name: user, 
+                favorites: [{ title, byteSize, url: imageUrl }]
+            });
+        }
+
+        await fs.writeFile('./users.json', JSON.stringify(users, null, 2), 'utf8');
+        res.json({ message: 'Favorite saved' });
+    } catch (error) {
+        console.error('Error saving favorite:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+
 
 app.listen(3000, () => console.log("Server is up and running..."))
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,9 @@
-POST http://localhost:3000/api/save-favorite
+POST http://localhost:3000/api/users/save-favorite
 Content-Type: application/json
 
 {
-  "user": "espasovskas95@gamil.com",
-  "imageUrl": "http://evryjewels.com/cdn/shop/files/daily-ring-1-2.jpg?v=1695846344"
+  "user": "someUserId",
+  "title": "Favorite Item Title",
+  "byteSize": "12345",
+  "imageUrl": "http://example.com/image.jpg"
 }
