@@ -34,9 +34,9 @@ app.post('/api/users/save-favorite', validate(addToFavoriteSchema), async (req, 
         let data = await fs.readFile('./users.json', 'utf8');
         let users = JSON.parse(data);
         
-        let foundUser = users.find(u => u.sub === user);
+        let foundUser = users.find(u => u.id === user);
         if (foundUser) {
-            const favoriteExists = foundUser.favorites.some(favorite => favorite.url === imageUrl);
+            const favoriteExists = foundUser.favorites.some(favorite => favorite.link === imageUrl);
             if (!favoriteExists) {
                 foundUser.favorites.push({ title, byteSize, link: imageUrl });
      
