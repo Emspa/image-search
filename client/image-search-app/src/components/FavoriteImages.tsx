@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import { IImageResultItem } from "../models/IImageResultItem";
+import './FavoriteImages.css'
 import axios from "axios";
 
 
@@ -32,10 +33,10 @@ export const FavoriteImages = () => {
         <div>
             <h2>My Photos</h2>
             {favorites.length > 0 ? (
-                <ul>
+                <ul className="images-container">
                     {favorites?.map((item, i) => (
                         <li key={i}>
-                            <img src={item.link} alt={item.title}  />
+                            <img className="favorite-img" src={item.link} alt={item.title}  />
                             
                         </li>
                     ))}
