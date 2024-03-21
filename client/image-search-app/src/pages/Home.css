@@ -12,7 +12,11 @@
     margin: 60px;
 }
 
-h2 {
+.text {
     font-size: 14px;
-    font-weight: 300;
+    transition: all 0.5s ease; 
+}
+  
+.text.zoom {
+    font-size: 24px; 
 }

@@ -11,7 +11,7 @@ if (rootElement) {
 
   root.render(
     <Auth0Provider
-      domain="dev-msnv7omulxa25tjg.us.auth0.com"
+      domain={import.meta.env.VITE_AUTH0_DOMAIN}
       clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
       authorizationParams={{
         redirect_uri: window.location.origin

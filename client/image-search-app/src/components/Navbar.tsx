@@ -13,7 +13,7 @@ export const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="title">
-          <h1>Min App</h1>
+          <h1>Image Search</h1>
         </div>
         <ul className="navlinks">
           <li>
